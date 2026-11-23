@@ -5,3 +5,8 @@ av<17  # faster-whisper 1.2.1 breaks on PyAV 17+ (metadata_errors TypeError)
 # LLM (Gemini)
 google-genai==3.6.1
 python-dotenv==1.2.4
+
+# FastAPI service
+fastapi
+uvicorn[standard]
+python-multipart
