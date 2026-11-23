@@ -1,6 +1,11 @@
 import os
+import time
+
 from dotenv import load_dotenv
 from google import genai
+
+from app_logger import write_log
+
 
 load_dotenv()
 
@@ -43,10 +48,16 @@ def detect_language(text: str) -> str:
     return "unknown"
 
 
-def transcribe_audio(audio_path: str, language: str = None) -> dict:
+def transcribe_audio(
+    audio_path: str,
+    language: str = None,
+    request_id: str = None
+) -> dict:
     """
     Transcribe audio using Gemini and return transcript and language.
     """
+
+    start_time = time.perf_counter()
 
     # Upload audio
     audio_file = client.files.upload(file=audio_path)
@@ -96,6 +107,23 @@ def transcribe_audio(audio_path: str, language: str = None) -> dict:
         detected_language = language.split("-")[0]
     else:
         detected_language = detect_language(transcript)
+
+    # Calculate processing time
+    processing_time = round(
+        time.perf_counter() - start_time, 3
+    )
+
+    # Log successful transcription
+    write_log(
+        event="transcription_success",
+        request_id=request_id,
+        model=MODEL,
+        transcript=transcript,
+        language=detected_language,
+        language_requested=language,
+        processing_time_seconds=processing_time,
+        transcript_empty=not bool(transcript.strip())
+    )
 
     return {
         "transcript": transcript,
