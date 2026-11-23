@@ -8,7 +8,7 @@ Living document. Update the Change Log whenever architecture, components, constr
 - Frontend: React + Vite for audio recording and displaying results.
 - Backend: ASP.NET Core Web API (.NET 10) for handling requests and coordinating processing.
 - Speech-to-Text: Python with Faster-Whisper for converting recorded audio into text.
-- LLM: External LLM API for generating responses from transcribed text.
+- LLM: Google Gemini API (`google-genai`) for generating responses from transcribed text.
 - The system supports the planned Bangla and English voice interaction requirements.
 - No database is required for the core Milestone 1 pipeline.
 
@@ -106,7 +106,7 @@ Exact error response formats and status-code mapping will be finalized during im
 - Final API routes and request/response contracts.
 - Audio format and maximum file-size limits.
 - Final validation rules and error response structure.
-- LLM provider integration and configuration.
+- LLM integration into the end-to-end pipeline (Gemini client exists as a standalone script, `gemini_llm.py`).
 - End-to-end integration testing of the complete pipeline.
 - Bangla and English transcription quality and performance testing.
 - Response-time and latency measurement.
@@ -150,3 +150,4 @@ Run each component from its respective project directory. Exact commands may dep
 | Date | Changes |
 |---|---|
 | 2026-11-19 | Initial Milestone 1 architecture documented, covering React frontend, ASP.NET Core backend, Python Faster-Whisper STT, LLM integration, validation, and processing flow. |
+| 2026-11-22 | LLM provider set to Google Gemini. Added `requirements.txt`. Next-step plan for a live voice app in [next-step-voice-app.md](next-step-voice-app.md). |
