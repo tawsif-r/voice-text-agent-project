@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import VoiceWorkspace from './components/VoiceWorkspace'
 
 type Theme = 'dark' | 'light'
 
@@ -108,7 +109,7 @@ function App() {
         <nav className="nav-links">
           <a href="#features">Features</a>
           <a href="#how-it-works">How it works</a>
-          <a href="#demo">Preview</a>
+          <a href="#demo">Record</a>
           <a href="#faq">FAQ</a>
         </nav>
 
@@ -123,7 +124,7 @@ function App() {
           </button>
 
           <a href="#demo" className="nav-cta">
-            Explore VoiceNest ↗
+            Start Recording ↗
           </a>
         </div>
       </header>
@@ -153,7 +154,7 @@ function App() {
 
             <div className="hero-actions">
               <a href="#demo" className="primary-cta">
-                Explore the experience
+                Start Recording
                 <span>↗</span>
               </a>
 
@@ -393,81 +394,10 @@ function App() {
           </div>
         </section>
 
-        {/* Product demo */}
-        <section className="demo-section section-container" id="demo">
-
-          <div className="demo-heading">
-            <span className="eyebrow">THE EXPERIENCE</span>
-
-            <h2>
-              Meet your new
-              <br />
-              <span>conversation space.</span>
-            </h2>
-
-            <p>
-              A focused space for speaking, understanding,
-              and exploring ideas.
-            </p>
-          </div>
-
-          <div className="demo-window">
-
-            <div className="demo-window-header">
-              <div className="brand">
-                <div className="brand-mark">
-                  <span>V</span>
-                </div>
-
-                <span className="brand-name">
-                  Voice<span>Nest</span>
-                </span>
-              </div>
-
-              <span className="demo-badge">
-                UI PREVIEW
-              </span>
-            </div>
-
-            <div className="demo-content">
-
-              <div className="demo-mic">
-                <div className="demo-mic-ring" />
-                <span>🎙️</span>
-              </div>
-
-              <h3>Your next idea starts with a question.</h3>
-
-              <p>
-                Voice interaction and AI responses will
-                be available here.
-              </p>
-
-              <button
-                type="button"
-                className="primary-cta demo-button"
-                disabled
-              >
-                Voice interaction coming soon
-              </button>
-
-            </div>
-
-            <div className="demo-panels">
-
-              <div>
-                <span>🎤 TRANSCRIPT</span>
-                <p>Your spoken words will appear here.</p>
-              </div>
-
-              <div>
-                <span>✨ AI RESPONSE</span>
-                <p>Your intelligent response will appear here.</p>
-              </div>
-
-            </div>
-          </div>
-        </section>
+        {/* Voice Workspace */}
+        <div id="demo">
+          <VoiceWorkspace />
+        </div>
 
         {/* FAQ */}
         <section className="faq-section section-container" id="faq">
@@ -527,7 +457,7 @@ function App() {
             </p>
 
             <a href="#demo" className="primary-cta">
-              Explore VoiceNest ↗
+              Start Recording ↗
             </a>
           </div>
 
