@@ -5,8 +5,8 @@ import uuid
 
 from fastapi import FastAPI, UploadFile, File, HTTPException, Response
 
-from transcribe import transcribe_audio
-from app_logger import write_log, log_exception
+from backend.transcribe import transcribe_audio
+from backend.app_logger import write_log, log_exception
 
 
 app = FastAPI(title="VoiceNest STT Service")

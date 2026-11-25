@@ -4,7 +4,7 @@ import time
 from dotenv import load_dotenv
 from google import genai
 
-from app_logger import write_log, log_exception
+from backend.app_logger import write_log, log_exception
 
 
 # Load environment variables
@@ -21,7 +21,7 @@ if not GEMINI_API_KEY:
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Gemini model
-MODEL = "gemini-3.8-flash"
+MODEL = "gemini-3.5-flash-lite"
 
 
 def generate_response(
