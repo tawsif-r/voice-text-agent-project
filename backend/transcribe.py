@@ -4,7 +4,7 @@ import time
 from dotenv import load_dotenv
 from google import genai
 
-from app_logger import write_log
+from backend.app_logger import write_log
 
 
 load_dotenv()
